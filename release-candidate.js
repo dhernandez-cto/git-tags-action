@@ -1,4 +1,3 @@
-const simpleGit = require('simple-git');
 
 async function getReleaseCandidateNumber(version, git){
     

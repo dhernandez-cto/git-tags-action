@@ -1,5 +1,6 @@
 const core = require('@actions/core');
 const getReleaseCandidateNumber = require("./release-candidate.js");
+const simpleGit = require('simple-git');
 
 const git = simpleGit();
 
