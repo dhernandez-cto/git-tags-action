@@ -6284,15 +6284,15 @@ const github = __nccwpck_require__(366);
 
 try {
   const versionToFilter = core.getInput('version');
-  console.log(`input version: ${version}`);
+  console.log(`input version: ${versionToFilter}`);
 
     /*
         put the logic here
     */
 
-  var lastReleaseCandidateNumber = 13;
+  var lastReleaseCandidateNumber = 101;
   core.setOutput("next-rc-number",lastReleaseCandidateNumber);
-  
+
 } catch (error) {
   core.setFailed(error.message);
 }

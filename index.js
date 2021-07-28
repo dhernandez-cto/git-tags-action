@@ -3,7 +3,7 @@ const github = require('@actions/github');
 
 try {
   const versionToFilter = core.getInput('version');
-  console.log(`input version: ${version}`);
+  console.log(`input version: ${versionToFilter}`);
 
     /*
         put the logic here

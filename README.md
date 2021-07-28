@@ -16,7 +16,6 @@ The next release candidate number for the `version`
 
 ## Example usage
 
-uses: belcebus/git-tags-action@main
-with:
-  version: '1.0.0'
-  
+    uses: belcebus/git-tags-action@main
+      with:
+      version: '1.0.0'
