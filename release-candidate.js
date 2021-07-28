@@ -2,7 +2,7 @@ const simpleGit = require('simple-git');
 
 
 async function getReleaseCandidateNumber(version){
-    const git = simpleGit();
+    const git = simpleGit.default();
     const tags = await git.tags();
     console.log(tags.all);
 
