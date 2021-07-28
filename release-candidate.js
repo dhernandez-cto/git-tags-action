@@ -19,9 +19,10 @@ async function getReleaseCandidateNumber(version){
     let re = new RegExp(rcVersionTemplate);
 
     const tagsMatching = tags.all.filter(element => re.test(element));
-    console.log(tagsMatching.lenght+1);
+    
+    console.log(tagsMatching.length+1);
 
-    return tagsMatching.lenght+1;
+    return tagsMatching.length+1;
 }
 
 module.exports = getReleaseCandidateNumber
