@@ -1,0 +1,24 @@
+{
+  "name": "git-tags-action",
+  "version": "1.0.0",
+  "description": "Git Tags Action repository: helper managing git tags",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/belcebus/git-tags-action.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/belcebus/git-tags-action/issues"
+  },
+  "homepage": "https://github.com/belcebus/git-tags-action#readme",
+  "dependencies": {
+    "@actions/core": "^1.4.0",
+    "@actions/github": "^5.0.0"
+  }
+}
