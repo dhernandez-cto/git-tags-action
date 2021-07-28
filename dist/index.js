@@ -6233,10 +6233,8 @@ exports.pick = pick;
 
 const simpleGit = __nccwpck_require__(1383);
 
-const git = simpleGit();
-
-async function getReleaseCandidateNumber(version){
-
+async function getReleaseCandidateNumber(version, git){
+    
     const tags = await git.tags();
     console.log(tags.all);
 
@@ -6355,6 +6353,8 @@ var __webpack_exports__ = {};
 const core = __nccwpck_require__(8864);
 const getReleaseCandidateNumber = __nccwpck_require__(1379);
 
+const git = simpleGit();
+
 async function run() {
 
     const versionToFilter = core.getInput('version');
@@ -6363,7 +6363,7 @@ async function run() {
 
         console.log(`input version: ${versionToFilter}`);
         
-        const number = await getReleaseCandidateNumber(versionToFilter);
+        const number = await getReleaseCandidateNumber(versionToFilter,git);
         
         console.log(number);
 

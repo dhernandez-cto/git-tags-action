@@ -1,6 +1,8 @@
 const core = require('@actions/core');
 const getReleaseCandidateNumber = require("./release-candidate.js");
 
+const git = simpleGit();
+
 async function run() {
 
     const versionToFilter = core.getInput('version');
@@ -9,7 +11,7 @@ async function run() {
 
         console.log(`input version: ${versionToFilter}`);
         
-        const number = await getReleaseCandidateNumber(versionToFilter);
+        const number = await getReleaseCandidateNumber(versionToFilter,git);
         
         console.log(number);
 
