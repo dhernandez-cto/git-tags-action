@@ -6229,9 +6229,8 @@ exports.pick = pick;
 /***/ }),
 
 /***/ 1379:
-/***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
+/***/ ((module) => {
 
-const simpleGit = __nccwpck_require__(1383);
 
 async function getReleaseCandidateNumber(version, git){
     
@@ -6352,6 +6351,7 @@ var __webpack_exports__ = {};
 (() => {
 const core = __nccwpck_require__(8864);
 const getReleaseCandidateNumber = __nccwpck_require__(1379);
+const simpleGit = __nccwpck_require__(1383);
 
 const git = simpleGit();
 
