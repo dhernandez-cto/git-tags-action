@@ -7,7 +7,8 @@ const git = simpleGit();
 try {
     const versionToFilter = core.getInput('version');
     console.log(`input version: ${versionToFilter}`);
-    const number = findTag(versionToFilter)
+    const number = findTag(versionToFilter).then();
+    console.log(number);
     core.setOutput("next-rc-number",number);
 
 } catch (error) {
@@ -24,7 +25,7 @@ async function findTag(version){
     let re = new RegExp(rcVersionTemplate);
 
     const tagsMatching = tags.all.filter(element => re.test(element));
-    console.log(tagsMatching.lenght+1)
+    console.log(tagsMatching.lenght+1);
 
-    return tagsMatching.lenght+1
+    return tagsMatching.lenght+1;
 }
