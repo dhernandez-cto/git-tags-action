@@ -6236,6 +6236,13 @@ const simpleGit = __nccwpck_require__(1383);
 
 async function getReleaseCandidateNumber(version){
     const git = simpleGit.default();
+    
+    const status = await git.status();
+    const branch = await git.branch();
+    
+    console.log(branch);
+    console.log(status);
+
     const tags = await git.tags();
     console.log(tags.all);
 
