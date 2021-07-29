@@ -10,7 +10,7 @@ return the next tag number.
 
 **Required** The version to search for in the remote tags list. 
 
-E.g.: `version: "1.0.0-RC-"`
+E.g.: `version: "1.0.0-RC"`
 
 ## Outputs
 
@@ -18,14 +18,25 @@ E.g.: `version: "1.0.0-RC-"`
 
 The next tag number for the git tag `version`.
 
-E.g.: given a Git Repository Tag List like this one:
+E.g.: given a git repository tag list like this one:
 
-1.0.0 1.0.1 1.0.2-RC-1 1.0.2-RC-2
+    1.0.0 | 1.0.1 | 1.0.2-RC-1 | 1.0.2-RC-2
 
-Calling this action with the parameter `version: 1.0.2-RC` will return 3
+Calling this action with the parameter `version: 1.0.2-RC` will return `3`
+
+## `new-tag`
+
+The full tag label compound of `version` plus `-next-tag-number`.
+
+E.g.: given a git repository tag list like this one:
+
+    1.0.0 | 1.0.1 | 1.0.2-RC-1 | 1.0.2-RC-2
+
+Calling this action with the parameter `version: 1.0.2-RC` will return 
+`1.0.2-RC-3`
 
 ## Example usage
 
     uses: belcebus/git-tags-action@main
       with:
-      version: '1.0.0-RC-'
+      version: '1.0.0-RC'

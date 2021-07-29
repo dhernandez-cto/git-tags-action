@@ -19,11 +19,12 @@ async function getReleaseCandidateNumber(version){
 
     const re = new RegExp(version);
     const tagsMatching = remoteTagsArr.filter(element => re.test(element));
-    
-    console.log("Filtered tags: ("+ tagsMatching.length +"): " + tagsMatching);
-    console.log("New tag number is: %d", tagsMatching.length+1);
+    const number = tagsMatching.length+1;
 
-    return tagsMatching.length+1;
+    console.log("Filtered tags: ("+ tagsMatching.length +"): " + tagsMatching);
+    console.log("New tag number is: %d", number);
+    
+    return {tagNumber: number, tag: version+"-"+number};
 }
 
 module.exports = getReleaseCandidateNumber

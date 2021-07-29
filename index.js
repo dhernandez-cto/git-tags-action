@@ -8,8 +8,9 @@ async function run() {
     try {
 
         console.log(`input version: ${versionToFilter}`);
-        const tagNumber = await getReleaseCandidateNumber(versionToFilter);
-        core.setOutput("next-tag-number",tagNumber);
+        const data = await getReleaseCandidateNumber(versionToFilter);
+        core.setOutput("next-tag-number",data.tagNumber);
+        core.setOutput("new-tag",data.tag)
     
     } catch (error) {
       core.setFailed(error.message);

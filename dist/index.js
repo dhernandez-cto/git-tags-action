@@ -6252,11 +6252,12 @@ async function getReleaseCandidateNumber(version){
 
     const re = new RegExp(version);
     const tagsMatching = remoteTagsArr.filter(element => re.test(element));
-    
-    console.log("Filtered tags: ("+ tagsMatching.length +"): " + tagsMatching);
-    console.log("New tag number is: %d", tagsMatching.length+1);
+    const number = tagsMatching.length+1;
 
-    return tagsMatching.length+1;
+    console.log("Filtered tags: ("+ tagsMatching.length +"): " + tagsMatching);
+    console.log("New tag number is: %d", number);
+    
+    return {tagNumber: number, tag: version+"-"+number};
 }
 
 module.exports = getReleaseCandidateNumber
@@ -6370,8 +6371,9 @@ async function run() {
     try {
 
         console.log(`input version: ${versionToFilter}`);
-        const tagNumber = await getReleaseCandidateNumber(versionToFilter);
-        core.setOutput("next-tag-number",tagNumber);
+        const data = await getReleaseCandidateNumber(versionToFilter);
+        core.setOutput("next-tag-number",data.tagNumber);
+        core.setOutput("new-tag",data.tag)
     
     } catch (error) {
       core.setFailed(error.message);
