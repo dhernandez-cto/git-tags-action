@@ -1,13 +1,13 @@
-name: 'Git Tags'
-description: 'Retrieve last git tag for a version'
+name: 'Git Tag Number'
+description: 'Retrieve the next tag number for versioning'
 inputs:
   version:  # id of input
     description: 'version to filter tags'
     required: true
     default: 'World'
 outputs:
-  next-rc-number: # id of output
-    description: 'The next rc number for the input version'
+  next-tag-number: # id of output
+    description: 'The next tag number for the input version'
 runs:
   using: 'node12'
   main: 'dist/index.js'

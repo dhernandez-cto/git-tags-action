@@ -6374,12 +6374,8 @@ async function run() {
     try {
 
         console.log(`input version: ${versionToFilter}`);
-        
-        const number = await getReleaseCandidateNumber(versionToFilter);
-        
-        console.log(number);
-
-        core.setOutput("next-rc-number",number);
+        const tagNumber = await getReleaseCandidateNumber(versionToFilter);
+        core.setOutput("next-tag-number",tagNumber);
     
     } catch (error) {
       core.setFailed(error.message);
