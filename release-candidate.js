@@ -1,6 +1,5 @@
 const simpleGit = require('simple-git');
 
-const tagRefPrefix = "refs/tags/";
 /*
     TODOS:
         - ( ) implementar el testing de este método
@@ -15,13 +14,10 @@ async function getReleaseCandidateNumber(version){
 
     const remoteTagsArr = (await git.listRemote(['--tags','--quiet', '--refs'])).split(/\r?\n/).map(item => item.replace(/.*tags\//,""));
 
-    console.log(remoteTagsArr);
+    console.log("Remote repository tags: " + remoteTagsArr);
+    console.log('Filtering by ' + version);
 
-    const versionTemplate=version;
-    console.log('Filtering by ' + versionTemplate);
-
-    let re = new RegExp(versionTemplate);
-
+    const re = new RegExp(version);
     const tagsMatching = remoteTagsArr.filter(element => re.test(element));
     
     console.log("Filtered tags: ("+ tagsMatching.length +"): " + tagsMatching);
