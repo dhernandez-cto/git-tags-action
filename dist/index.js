@@ -6250,14 +6250,15 @@ async function getReleaseCandidateNumber(version){
 
     console.log(remoteTagsArr);
 
-    const rcVersionTemplate=version;
-    console.log('Filtering by' + rcVersionTemplate);
+    const versionTemplate=version;
+    console.log('Filtering by ' + versionTemplate);
 
-    let re = new RegExp(rcVersionTemplate);
+    let re = new RegExp(versionTemplate);
 
     const tagsMatching = remoteTagsArr.filter(element => re.test(element));
     
-    console.log(tagsMatching.length+1);
+    console.log("Filtered tags: ("+ tagsMatching.length +"): " + tagsMatching);
+    console.log("New tag number is: %d", tagsMatching.length+1);
 
     return tagsMatching.length+1;
 }
